@@ -7,7 +7,7 @@ export default function Navbar() {
   const [active, setActive] = useState(false);
   return (
     <motion.nav
-      className="flex flex-col items-center justify-between tablet:justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
+      className="flex flex-col items-center relative z-10 bg-white justify-between tablet:justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
       variants={{
         open: {
           height: "100vh",
@@ -24,9 +24,9 @@ export default function Navbar() {
       <div className="flex flex-row items-center justify-between mx-auto w-full tablet:max-w-[1200px]">
         <div className="flex flex-row items-center justify-between pl-5 w-full tablet:pl-0 h-16">
           <a href="" className="flex flex-row gap-2 items-center">
-            <svg className="h-5 w-[22px] aspect-[1.1379310344827587/1]">
+            {/* <svg className="h-5 w-[22px] aspect-[1.1379310344827587/1]">
               <use href="#svg-213483055_362"></use>
-            </svg>
+            </svg> */}
             <p className="text-xl text-black tracking-tighter font-medium leading-[1em]">
               Convert
             </p>
@@ -78,44 +78,44 @@ export default function Navbar() {
               href=""
               className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              Features
+              Home
             </a>
             <a
               href=""
-              className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
+              className="whitespace-nowrap flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              Pricing
+              Content AI
             </a>
             <a
               href=""
-              className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
+              className="whitespace-nowrap flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              About
+              Reviews AI
             </a>
             <a
               href=""
-              className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
+              className="whitespace-nowrap flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              Contact
+              Voice AI
             </a>
             <a
               href=""
-              className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
+              className="whitespace-nowrap flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              Docs
+              Funnel & Website AI
             </a>
             <a
               href=""
-              className=" flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
+              className="whitespace-nowrap flex flex-row items-center justify-center h-9 px-3 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
-              Blog
+              Workflow AI
             </a>
-            <a
+            {/* <a
               href=""
               className="flex flex-row items-center group relative justify-center h-9 px-3 whitespace-nowrap gap-1 rounded-[99px] text-[17px] text-[#101010] font-medium leading-[1.4em] tracking-tighter hover:bg-[#fff7ec]"
             >
               All pages
-              <div className="size-5 aspect-square relative bg-white">
+              <div className="size-5 aspect-square relative">
                 <div
                   className="absolute h-[2px] w-[9px] left-[3px] overflow-hidden bg-[#111] rotate-45 group-hover:-rotate-45"
                   style={{
@@ -130,10 +130,9 @@ export default function Navbar() {
                 ></div>
               </div>
               <div
-                className="absolute hidden group-hover:flex top-9 right-7 bg-white flex-row items-center justify-between gap-1 p-5 rounded-xl border-[1px] border-[#aaa] w-[500px] overflow-hidden"
+                className="absolute hidden group-hover:flex z-20 top-9 right-7 bg-white flex-row items-center justify-between gap-1 p-5 rounded-xl border-[1px] border-[#aaa] w-[500px] overflow-hidden"
                 style={{ boxShadow: "rgba(0, 0, 0, 0.05) 0px 10px 20px 0px" }}
               >
-                {" "}
                 <div className="flex flex-col items-start justify-center w-1/2 gap-[2px]">
                   <a
                     href=""
@@ -539,7 +538,7 @@ export default function Navbar() {
                   </a>
                 </div>
               </div>
-            </a>
+            </a> */}
           </div>
           <div className="flex flex-row items-center justify-between gap-[6px]">
             <a
@@ -585,37 +584,37 @@ export default function Navbar() {
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>Features</h4>
+            <h4>Home</h4>
           </a>
           <a
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>Pricing</h4>
+            <h4> Content AI</h4>
           </a>
           <a
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>About</h4>
+            <h4>Reviews AI</h4>
           </a>
           <a
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>Contact</h4>
+            <h4> Voice AI</h4>
           </a>
           <a
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>Docs</h4>
+            <h4>Funnel & Website AI</h4>
           </a>
           <a
             href=""
             className="text-xl text-[#101010] font-medium tracking-tighter leading-[1.3em] h-9"
           >
-            <h4>Blog</h4>
+            <h4>Workflow AI</h4>
           </a>
         </div>
         <div className="flex flex-col items-center justify-center w-full gap-[10px]">
