@@ -1,13 +1,60 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
+
+  const [isVisible, setIsVisible] = useState(true); // Contrôle la visibilité du menu
+  const [lastScrollY, setLastScrollY] = useState(0); // Stocke la position précédente du défilement
+
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Si on descend et dépasse 100px
+        setIsVisible(false);
+      } else {
+        // Si on remonte
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    // Écoute l'événement de défilement
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      // Nettoyage de l'écouteur
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 900); // Met à jour si écran > 900px
+    };
+
+    // Détecte la taille initiale
+    handleResize();
+
+    // Ajoute un listener de redimensionnement
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      // Nettoyage du listener
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <motion.nav
-      className="flex flex-col items-center relative z-10 bg-white justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
+      className="flex flex-col fixed mb-16 items-center z-40 bg-white justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
       variants={{
         open: {
           height: "100vh",
@@ -17,9 +64,19 @@ export default function Navbar() {
           height: "64px",
           transition: { durration: 0.1, delay: 0.1 },
         },
+        visible: {
+          translateY: 0,
+          transition: { duration: 0.1, ease: "easeInOut" },
+        },
+        hidden: {
+          translateY: "-100%",
+          transition: { duration: 0.1, ease: "easeInOut" },
+        },
       }}
       transition={{ ease: "easeInOut" }}
-      animate={active ? "open" : "closed"}
+      animate={
+        active && !isLargeScreen ? "open" : isVisible ? "visible" : "hidden"
+      }
     >
       <div className="flex flex-row items-center justify-between mx-auto w-full tablet:max-w-[1200px]">
         <div className="flex flex-row items-center justify-between pl-5 w-full tablet:pl-0 h-16">
@@ -563,7 +620,7 @@ export default function Navbar() {
       </div>
       <motion.div
         className={`${
-          active ? "flex" : "hidden"
+          active && !isLargeScreen ? "flex" : "hidden"
         } flex-col items-start justify-start w-full pt-5 px-5 pb-0 gap-8 tablet:hidden`}
         variants={{
           open: {
