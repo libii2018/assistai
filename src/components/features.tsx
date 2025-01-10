@@ -20,7 +20,7 @@ export default function Features() {
       </div>
       <div className="flex flex-col items-start justify-center w-full gap-20">
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img
@@ -105,7 +105,7 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img
@@ -189,7 +189,7 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-between w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img
@@ -272,7 +272,7 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img
@@ -356,7 +356,7 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img
@@ -440,7 +440,7 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-[345px] tablet:h-[364px] pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
+          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
             <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
               <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
                 <img

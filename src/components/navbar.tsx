@@ -7,7 +7,7 @@ export default function Navbar() {
   const [active, setActive] = useState(false);
   return (
     <motion.nav
-      className="flex flex-col items-center relative z-10 bg-white justify-between tablet:justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
+      className="flex flex-col items-center relative z-10 bg-white justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
       variants={{
         open: {
           height: "100vh",
