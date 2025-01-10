@@ -1,6 +1,43 @@
-import React from "react";
+"use client";
+import { useAnimation, useInView, motion } from "motion/react";
+import React, { useEffect, useRef } from "react";
 
 export default function Features() {
+  const ref = useRef(null);
+  // Configure useInView pour observer le conteneur
+  const inView = useInView(ref);
+
+  // Contrôleur pour l'animation
+  const controls = useAnimation();
+
+  // Déclencher l'animation lorsqu'inView change
+  useEffect(() => {
+    console.log(inView);
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [inView, controls]);
+
+  // Variants pour l'animation
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      x: "100%", // Part de la gauche
+      y: "100%", // Part du bas
+    },
+    visible: {
+      opacity: 1,
+      x: "0%",
+      y: "0%",
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <section className="flex flex-col items-center justify-center mx-auto max-w-[500px] tablet:max-w-[1064px] gap-[60px] tablet:pt-[80px] py-[60px] px-[20px] tablet:pb-[80px] w-full">
       <div className="flex flex-col items-center justify-center w-full gap-8">
@@ -19,16 +56,26 @@ export default function Features() {
         </div>
       </div>
       <div className="flex flex-col items-start justify-center w-full gap-20">
-        <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/dmzB6UCcpvyJEitigtg6ige3JI.png?scale-down-to=1024"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
-              </div>
+        <div
+          ref={ref}
+          className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row-reverse"
+        >
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-start flex-1 h-auto overflow-hidden relative pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 aspect-[1.3333333333333333/1] border-[1px] rounded-tl-xl border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <motion.div
+                variants={imageVariants}
+                initial="hidden"
+                animate={controls}
+                className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tl-xl"
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/dmzB6UCcpvyJEitigtg6ige3JI.png?scale-down-to=1024"
+                    alt=""
+                    className="block size-full rounded-tl-xl object-left-top object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-6 tablet:w-[50%]">
@@ -104,15 +151,17 @@ export default function Features() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/s0zLEuh1iQ7wqUGWC0rABPWJLQ.png"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
+        <div className="flex flex-col items-center justify-center w-full gap-8 tablet:flex-row">
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-end flex-1 h-auto overflow-hidden relative pt-6 pr-6 tablet:pt-10 tablet:pr-10 aspect-[1.3333333333333333/1] border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <div className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tr-xl rounded-br-xl">
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/s0zLEuh1iQ7wqUGWC0rABPWJLQ.png"
+                    alt=""
+                    className="block size-full border-inherit object-left-top object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -189,15 +238,22 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-between w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/92zyjxX9zrrcanJfJjhvN3vz0s.png"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
-              </div>
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-start flex-1 h-auto overflow-hidden relative pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 aspect-[1.3333333333333333/1] border-[1px] rounded-tl-xl border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <motion.div
+                variants={imageVariants}
+                initial="hidden"
+                animate={controls}
+                className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tl-xl"
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/dmzB6UCcpvyJEitigtg6ige3JI.png?scale-down-to=1024"
+                    alt=""
+                    className="block size-full rounded-tl-xl object-left-top object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-6 tablet:w-[50%]">
@@ -272,14 +328,16 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/dmzB6UCcpvyJEitigtg6ige3JI.png?scale-down-to=1024"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-end flex-1 h-auto overflow-hidden relative pt-6 pr-6 tablet:pt-10 tablet:pr-10 aspect-[1.3333333333333333/1] border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <div className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tr-xl rounded-br-xl">
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/s0zLEuh1iQ7wqUGWC0rABPWJLQ.png"
+                    alt=""
+                    className="block size-full border-inherit object-left-top object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -356,15 +414,22 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row-reverse">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/s0zLEuh1iQ7wqUGWC0rABPWJLQ.png"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
-              </div>
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-start flex-1 h-auto overflow-hidden relative pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 aspect-[1.3333333333333333/1] border-[1px] rounded-tl-xl border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <motion.div
+                variants={imageVariants}
+                initial="hidden"
+                animate={controls}
+                className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tl-xl"
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/dmzB6UCcpvyJEitigtg6ige3JI.png?scale-down-to=1024"
+                    alt=""
+                    className="block size-full rounded-tl-xl object-left-top object-cover"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
           <div className="flex flex-col items-center justify-center gap-6 tablet:w-[50%]">
@@ -440,14 +505,16 @@ export default function Features() {
         </div>
 
         <div className="flex flex-col items-center justify-center w-full  gap-8 tablet:flex-row">
-          <div className="flex flex-col items-center justify-center w-full  tablet:w-[50%] h-auto pt-6 pr-0 pb-0 pl-6 tablet:pt-10 tablet:pl-10 border-[1px] border-[#b8b8b833] bg-[#fff7ec] rounded-xl tablet:rounded-[20px] aspect-[1.3333333333333333/1] overflow-hidden">
-            <div className="flex flex-col flex-1 w-full h-fit items-center relative justify-center">
-              <div className="w-[106%] h-fit absolute inset-0 aspect-[1.2871046228710463 / 1]">
-                <img
-                  src="https://framerusercontent.com/images/92zyjxX9zrrcanJfJjhvN3vz0s.png"
-                  alt=""
-                  className="w-full h-full object-cover object-left-top rounded-tl-xl rounded-br-xl"
-                />
+          <div className="flex flex-row items-center flex-1 h-fit justify-center min-w-[280px] overflow-visible relative p-0 w-[1px]">
+            <div className="flex flex-row items-start justify-end flex-1 h-auto overflow-hidden relative pt-6 pr-6 tablet:pt-10 tablet:pr-10 aspect-[1.3333333333333333/1] border-[1px] border-[#b8b8b833] bg-[#e6e6fa] rounded-xl">
+              <div className="aspect-[1.2871046228710463/1] flex-none h-auto overflow-visible relative w-[106%] border-[2px] border-[#b8b8b833] rounded-tr-xl rounded-br-xl">
+                <div className="absolute inset-0">
+                  <img
+                    src="https://framerusercontent.com/images/s0zLEuh1iQ7wqUGWC0rABPWJLQ.png"
+                    alt=""
+                    className="block size-full border-inherit object-left-top object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
