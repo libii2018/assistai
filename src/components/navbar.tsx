@@ -55,14 +55,6 @@ export default function Navbar() {
     <motion.nav
       className="flex flex-col fixed mb-16 items-center z-40 bg-white justify-start border-b border-[#151515] tablet:flex-row tablet:py-5 tablet:px-[30px] w-full tablet:h-16"
       variants={{
-        open: {
-          height: "100vh",
-          transition: { durration: 0.1 },
-        },
-        closed: {
-          height: "64px",
-          transition: { durration: 0.1, delay: 0.1 },
-        },
         visible: {
           translateY: 0,
           transition: { duration: 0.1, ease: "easeInOut" },
@@ -73,9 +65,7 @@ export default function Navbar() {
         },
       }}
       transition={{ ease: "easeInOut" }}
-      animate={
-        active && !isLargeScreen ? "open" : isVisible ? "visible" : "hidden"
-      }
+      animate={isVisible ? "visible" : "hidden"}
     >
       <div className="flex flex-row items-center justify-between mx-auto w-full tablet:max-w-[1200px]">
         <div className="flex flex-row items-center justify-between pl-5 w-full tablet:pl-0 h-16">
@@ -623,17 +613,20 @@ export default function Navbar() {
         } flex-col items-start justify-start w-full pt-5 px-5 pb-0 gap-8 tablet:hidden`}
         variants={{
           open: {
+            height: "100vh",
             opacity: 1,
             y: 0,
 
             transition: { delay: 0.1 },
           },
           closed: {
+            height: "64px",
             opacity: 0,
             y: -10,
             transition: { duration: 0.3 },
           },
         }}
+        animate={active && !isLargeScreen ? "open" : "closed"}
       >
         <div className="flex flex-col items-start justify-start w-full gap-3">
           <a
